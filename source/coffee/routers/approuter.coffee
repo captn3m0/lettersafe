@@ -7,6 +7,7 @@ define ['marionette', 'controllers/appcontroller'], (Marionette, AppController)-
 		appRoutes:
 			'': 'renderHome'
 			'home': 'renderHome'
+			'inbox': 'renderInbox'
 
 		doubleCheck: ->
 			console.log 'Still Ready'

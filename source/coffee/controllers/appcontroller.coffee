@@ -4,6 +4,8 @@ define ['marionette', 'controllers/content'], (Marionette, ContentController)->
 
 		renderHome: ->
 			ContentController.renderView 'views/home'
+		renderInbox: ->
+			ContentController.renderView 'views/inbox'
 
 	Controller = new AppController()
 	return Controller
