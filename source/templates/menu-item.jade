@@ -1,0 +1,28 @@
+mixin _menuItem(_hasDropDown)
+	if _hasDropDown
+		className = 'menu-item'
+		div(class='#{className}', data-toggle='elium-collapse')
+			span.icon
+				i(class='#{iconClass}')
+			span.text #{name}
+			span.caret
+	else 
+		className = 'menu-item'
+		div(class='#{className}')
+			span.icon
+				i(class='#{iconClass}')
+			span.text #{name}
+
+
+
+if hasSubMenu === false
+	+_menuItem(false)
+
+if hasSubMenu
+	+_menuItem(true)
+	ul.collapse.list-unstyled
+		each menu in subMenuList
+			li.submenu-item
+				span.icon
+					i(class='#{menu.iconClass}')
+				span.text #{menu.name}

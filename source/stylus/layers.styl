@@ -1,0 +1,46 @@
+.layer
+	absolute top left
+	z-index 1
+	display block
+	margin 0
+	padding 0
+	border none
+	background none
+	overflow hidden
+	clearfix()
+
+.region
+	margin 0
+	padding 0
+	outline none
+	background none
+	overflow hidden
+
+body
+	@extend .layer
+	bottom 0
+	right 0
+	z-index 0
+	perspective 1000
+	transform-style unquote('preserve-3d')
+	background-color #222
+
+
+.app-main
+	@extend .layer
+	right 0
+	bottom 0
+	z-index 10
+	clearfix()
+	transform-origin center center
+	transition all .3s ease-in-out
+	background-color theme_background_color
+
+
+.app-content
+	@extend .layer
+	top 60px
+	bottom 0
+	right 0
+	z-index 100
+	overflow-y auto

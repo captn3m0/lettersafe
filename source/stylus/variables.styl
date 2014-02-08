@@ -1,0 +1,93 @@
+//
+// Variables
+// ------------------------------------------------------
+
+//
+// Colors
+// Variable names are separated with a underscore to avoid
+// confusion with css properties
+// ------------------------------------------------------
+
+// Base Colors
+color_blue = #33b5e5
+color_red = #FF4444
+color_green = #33DC49
+color_purple = rgb(157, 105, 180)
+color_pink = #ED3BA6
+color_orange = #FFBB33
+color_yellow = #F4B400
+
+// Grays
+gray_darker = #222
+gray_dark = #555
+gray = #999
+gray_light = #BBB
+gray_ligher = #DDD
+
+fadeColor = rgba(#fff, 0.4)
+
+//
+// Fonts 
+// Select the base font to use
+// Add Custom WebFonts in fontfaces.styl
+// Available Fonts:
+// 1. Source Sans Pro 						# _use-font-sourcesanspro()
+// 2. Roboto											# _use-font-roboto()
+// 3. BonvenoCF										# _use-font-bonvenocf()
+// 4. Caviar Dreams								# _use-font-caviardreams()
+// 5. Titillium										# _use-font-titillium()
+// 6. Quicksand										# _use-font-quicksand()
+// ------------------------------------------------------
+
+// Base Font
+//_use-font-sourcesanspro()
+/*baseFont = "RobotoRegular"
+baseFontLight = "RobotoLight"
+baseFontSemibold = "RobotoMedium"
+baseFontThin = "RobotoThin"
+baseFontBold = "RobotoBold"
+baseFontXBold = "RobotoBlack"*/
+
+baseFont = "SourceSansProRegular"
+baseFontLight = "SourceSansProLight"
+baseFontSemibold = "SourceSansProSemibold"
+baseFontThin = "SourceSansProExtraLight"
+baseFontBold = "SourceSansProBold"
+baseFontXBold = "SourceSansProBlack"
+
+
+
+// Default Font Properties
+baseFontSize = 14px
+baseFontWeight = normal
+
+
+
+// Dark Theme
+dark_theme_font_color = #f7f7f7
+dark_theme_background = #333
+dark_theme_widget = darken(dark_theme_background, 8%)
+dark_theme_widget_header = darken(dark_theme_background, 15%)
+dark_theme_border = darken(dark_theme_background, 20%)
+
+// Light Theme
+light_theme_font_color = #444
+light_theme_background = #fff
+light_theme_widget = darken(light_theme_background, 1%)
+light_theme_widget_header = darken(light_theme_background, 4%)
+light_theme_border = darken(#fff, 12%)
+
+
+
+
+// Default Theme
+// Change these values to switch between dark and light themes
+theme_background_color = light_theme_background
+theme_font_color = light_theme_font_color
+theme_widget_color = light_theme_widget
+theme_widget_header = light_theme_widget_header
+theme_border_color = light_theme_border
+theme_widget_border = theme_widget_header
+
+color_base = color_blue
+color_base_border = darken(color_base, 10%)

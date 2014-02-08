@@ -1,0 +1,91 @@
+
+// Font overrides
+p, span, div, ul, li, a, figure
+	font-family baseFont 
+	font-weight normal
+
+// Heading Overrides
+
+h1
+	font-size 4em
+h2
+	font-size 3em
+h3
+	font-size 2.2em
+h4
+	font-size 1.8em
+h5
+	font-size 1.4em
+h6
+	font-size 1.2em 
+
+h1,h2,h3,h4,h5,h6
+	color color_base
+h1,h2,h3
+	font-weight normal
+h1,h2
+	font-family baseFontThin
+h3
+	font-family baseFontLight
+h2.bold
+	font-family baseFont
+h2.dark
+	color #555
+
+// Form control Overrides
+.form-control 
+	border-radius 0
+	box-shadow none
+	&:hover, &:active, &:focus
+		box-shadow none
+
+
+// Button Overrides
+.btn, .btn.btn-default
+	border-radius 0
+
+// Container fluid until bootstrap fixes this issue
+.container-fluid
+	padding 0 15px
+.container-fluid[ data-fullwidth = 'true' ]
+	padding 0 
+		
+@media (max-width: 767px)
+	.container-fluid
+		padding 0
+
+
+.list-vertical
+	li
+		display block
+		margin-bottom 20px
+.list-padded
+	li
+		padding 0 15px 15px 0
+
+.row.whiterow
+	background-color white
+	border-top 1px #ddd solid
+	border-bottom 1px #ddd solid
+
+
+.page-header.bookmark
+	margin-top 80px
+
+.page-header.alt
+	h1
+		display block
+		text-align center
+		small
+			display block
+			margin-top 20px
+			font-size 50%
+
+
+// Overriding the default row
+.row.row-full-width
+	margin-left 0
+	margin-right 0
+.row.row-padded
+	margin-left 15px 
+	margin-right 15px
