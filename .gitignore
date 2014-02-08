@@ -1,0 +1,14 @@
+
+# Package Manager
+node_modules/
+bower_components/
+
+*.sublime-project
+*.sublime-workspace
+
+# Generated Files
+app/
+
+# Generated Docs
+docs/
+
