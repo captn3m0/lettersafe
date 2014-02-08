@@ -28,7 +28,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-MongoClient.connect('mongodb://127.0.0.1:27017/letterafe', function(err, db) {
+MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
 	if(err) throw err;
   var routes = require('./routes')(db);
   var user = require('./routes/user')(db);
