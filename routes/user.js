@@ -1,4 +1,4 @@
-var bcrypt = require('bcryptjs');
+var bcrypt = require('bcrypt');
 var ursa = require('ursa');
 var endecrypt = require("endecrypt");
 module.exports = function(db){
@@ -9,8 +9,26 @@ module.exports = function(db){
     login: function(req, res){
       res.render("login", {title:"Login"});
     },
-
     postLogin: function(req, res){
+      var username = req.body.username.replace(/\W/g, '');
+      db.collection('users').findOne({username:username}, function(err,data){
+        if(data==null)
+        {
+          res.send("No such user");
+        }
+        //Now we check the password hash match
+        else{
+          bcrypt.compare(req.body.password, data.password, function(err, response){
+            if(err) throw err;
+            if(response){
+              res.send("Right password");
+            }
+            else{
+              res.send("Wrong password")
+            }
+          });
+        }
+      })
     },
     postRegister: function(req, res){
       var keys = ursa.generatePrivateKey();
