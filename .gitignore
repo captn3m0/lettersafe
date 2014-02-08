@@ -1,5 +1,4 @@
 # Package Manager
-node_modules/
 bower_components/
 
 *.sublime-project
@@ -14,4 +13,3 @@ public/fonts/
 
 
 # Generated Docs
-docs/

@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt');
 var ursa = require('ursa');
-var endecrypt = require("endecrypt");
+var cryptr = require('cryptr');
+
 module.exports = function(db){
   return {
     register: function(req,res){
@@ -21,7 +22,11 @@ module.exports = function(db){
           bcrypt.compare(req.body.password, data.password, function(err, response){
             if(err) throw err;
             if(response){
-              res.send("Right password");
+              var crypto = new cryptr(req.body.password);
+              var private_key = crypto.decrypt(data.keys.private);
+              req.session.private_key = private_key;
+              req.session.username = username;
+              res.send(data);
             }
             else{
               res.send("Wrong password")
@@ -38,27 +43,24 @@ module.exports = function(db){
 
       var private_pem_key = priv.toPrivatePem('base64');
       //Now we encrypt the private key using another hashs
+      var crypto = new cryptr(req.body.password);
+      var encrypted_private_key = crypto.encrypt(private_pem_key)
 
-      var private_key_hash = bcrypt.hashSync(req.body.password, 8);
-      endecrypt.encrypt(private_pem_key, private_key_hash, function(err,private_key_locked){
+      //generate the hash. 16 is the salt length
+      var hash = bcrypt.hashSync(req.body.password, 16);
+      var username = req.body.username.replace(/\W/g, '');
+      db.collection('users').insert({
+        username: username,
+        password: hash,
+        keys:
+        {
+          public: pub.toPublicPem('base64'),
+          private:  encrypted_private_key
+        }
+      }, function(err, inserted){
         if(err) throw err;
-        //generate the hash. 16 is the salt length
-        var hash = bcrypt.hashSync(req.body.password, 16);
-        var username = req.body.username.replace(/\W/g, '');
-        db.collection('users').insert({
-          username: username,
-          password: hash,
-          keys:
-          {
-            public: pub.toPublicPem('base64'),
-            private: private_key_locked.toString('base64')
-          }
-        }, function(err, inserted){
-          if(err) throw err;
-          res.send('User account registered for '+username+"@lettersafe.in");
-        });
-        
-      })
+        res.send('User account registered for '+username+"@lettersafe.in");
+      });
     }
   };
 }

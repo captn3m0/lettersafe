@@ -19,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('lettersafe.secret'));
+app.use(express.session({secret: "lettersafe.secret"}));
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -38,7 +39,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
   app.post('/login', user.postLogin);
   app.get('/register', user.register);
   app.post('/register', user.postRegister);
-
+  app.get('/debug', function(req,res){
+    res.json(req.session);
+  })
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });
