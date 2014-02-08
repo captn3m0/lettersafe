@@ -1,5 +1,4 @@
 # Package Manager
-bower_components/
 
 *.sublime-project
 *.sublime-workspace
@@ -10,6 +9,3 @@ public/js/
 public/stylesheets/
 public/stylesheets/style.css
 public/fonts/
-
-
-# Generated Docs
