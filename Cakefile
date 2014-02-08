@@ -116,13 +116,13 @@ task 'fonts:download', 'downloads fonts', ->
 task 'compile:coffee', 'compiles .coffee -> .js', ->
 	console.log 'Compiling .coffee -> .js'
 	{exec} = require 'child_process'
-	cmd = 'coffee -cb -o ./public/js ./source/coffee'
+	cmd = 'coffee -cb -o ./app/js ./source/coffee'
 	child = exec cmd, (error, stdout, stderr)->
 		console.log error, stdout, stderr
 	
 task 'compile:stylus', 'compiles .styl -> .css', ->
 	console.log 'Compiling .styl -> .css...'
-	runCommand 'stylus', ['./source/stylus/style.styl', '-o', './public/stylesheets/']
+	runCommand 'stylus', ['./source/stylus/style-client.styl', '-o', './app/css/']
 
 task 'compile:jade', 'compiles .jade -> .html', ->
 	console.log 'Compiling .jade -> .html'
@@ -131,7 +131,7 @@ task 'compile:jade', 'compiles .jade -> .html', ->
 task 'compile:templates', 'compiles .jade templates', ->
 	console.log 'Compiling clientjade templates...'
 	{exec} = require 'child_process'
-	cmd = 'clientjade source/templates/ > public/js/templates.js'
+	cmd = 'clientjade source/templates/ > app/js/templates.js'
 	child = exec cmd, (error, stdout, stderr)->
 		console.log error, stdout, stderr
 
@@ -143,7 +143,7 @@ task 'compile:templates', 'compiles .jade templates', ->
 # Copy Tasks
 task 'copy:templates', 'copies templates to app directory', ->
 	console.log 'copy:templates'
-	runCommand 'cp', ['-r', './source/templates/*', './public/js/templates/*']
+	runCommand 'cp', ['-r', './source/templates/*', './app/js/templates/*']
 	
 
 
@@ -185,6 +185,7 @@ StartServer = ->
 	express = require 'express'
 	http = require 'http'
 	basedir = path.resolve './app/'
+	console.log path.normalize(basedir)
 
 	app = express()
 	app.configure ()->
@@ -192,11 +193,15 @@ StartServer = ->
 	  app.use express.compress()
 	  app.use express.bodyParser()
 	  app.use express.static(basedir)
+	  app.use express.static(path.resolve(basedir, 'js'))
+	  app.use express.static(path.resolve(basedir, 'css'))
+	 	app.use express.static(path.resolve(basedir, 'fonts'))
 
 
-	app.get '*', (req, res)->
+	app.get '/', (req, res)->
 		route = req.originalUrl
-		res.sendfile path.resolve(basedir, 'index.html')
+		indexPath = path.resolve(basedir, 'index.html')
+		res.sendfile indexPath
 
 	Res.Server = http.createServer(app).listen app.get('port'), ()->
 		console.log "Server Started"
