@@ -1,6 +1,4 @@
-
 # Package Manager
-node_modules/
 bower_components/
 
 *.sublime-project
