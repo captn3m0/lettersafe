@@ -8,6 +8,10 @@ bower_components/
 
 # Generated Files
 app/
+public/js/
+public/stylesheets/
+public/fonts/
+
 
 # Generated Docs
 docs/
