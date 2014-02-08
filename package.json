@@ -1,12 +1,16 @@
 {
-  "name": "application-name",
+  "name": "Lettersafe",
   "version": "0.0.1",
+  "description": "Email service",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "main": "Cakefile",
+  "author": "Tushar Kant Sahay",
+  "license": "MIT",
   "dependencies": {
-    "express": "3.4.2",
+    "express": "*",
+    "coffee-script": "*",
+    "nib": "*",
+    "clientjade": "*",
     "jade": "*",
     "stylus": "*"
   }
