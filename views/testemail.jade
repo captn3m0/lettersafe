@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1 #{title}
+  form(action='/testemail', method='post')
+    input(name='to', placeholder='To Email Address')
+    input(name='from', placeholder='From Email Address')
+    textarea(name='text')
+    input(type='submit', value='Send Email')
