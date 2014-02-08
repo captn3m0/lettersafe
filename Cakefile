@@ -1,7 +1,7 @@
 ### 
- # Initial Tasks
+ # Initial Tasks 
  # Add Initializer tasks here	
-###
+### 
 
 fs = require 'fs'
 path = require 'path'
@@ -21,10 +21,10 @@ copyLibrary = (path)->
 		spl = path.split('/')
 		fname = spl[spl.length-1]
 		if path.substr(-3) is '.js' then kw = 'js/libs'
-		else if path.substr(-4) is '.css' then kw = 'css'
+		else if path.substr(-4) is '.css' then kw = 'stylesheets'
 		else if path.substr(-4) in ['woff', '.ttf', '.eot', '.svg', '.otf'] then kw = 'fonts'
 		
-		dest = './app/' + kw + '/' + fname
+		dest = './public/' + kw + '/' + fname
 		console.log '   ' + path + ' -> ' + dest
 		fs.createReadStream(path)
 			.pipe(fs.createWriteStream(dest))
@@ -80,11 +80,10 @@ task 'libs:check', 'checks if libraries exist', ->
 	deps = Object.keys bowerpkg.dependencies
 	
 
-task 'libs:setup', 'copies libraries to ./app/js/libs', ->
+task 'libs:setup', 'copies libraries to ./public/js/libs', ->
 	deps = Object.keys bowerpkg.dependencies
 
 	for dep in deps
-
 		npmJSON = 'bower_components/' + dep + '/package.json'
 		bowerJSON = 'bower_components/' + dep + '/bower.json'
 		componentJSON = 'bower_components/' + dep + '/component.json'
@@ -117,13 +116,13 @@ task 'fonts:download', 'downloads fonts', ->
 task 'compile:coffee', 'compiles .coffee -> .js', ->
 	console.log 'Compiling .coffee -> .js'
 	{exec} = require 'child_process'
-	cmd = 'coffee -cb -o ./app/js ./source/coffee'
+	cmd = 'coffee -cb -o ./public/js ./source/coffee'
 	child = exec cmd, (error, stdout, stderr)->
 		console.log error, stdout, stderr
 	
 task 'compile:stylus', 'compiles .styl -> .css', ->
 	console.log 'Compiling .styl -> .css...'
-	runCommand 'stylus', ['./source/stylus/style.styl', '-o', './app/css/']
+	runCommand 'stylus', ['./source/stylus/style.styl', '-o', './public/stylesheets/']
 
 task 'compile:jade', 'compiles .jade -> .html', ->
 	console.log 'Compiling .jade -> .html'
@@ -132,7 +131,7 @@ task 'compile:jade', 'compiles .jade -> .html', ->
 task 'compile:templates', 'compiles .jade templates', ->
 	console.log 'Compiling clientjade templates...'
 	{exec} = require 'child_process'
-	cmd = 'clientjade source/templates/ > app/js/templates.js'
+	cmd = 'clientjade source/templates/ > public/js/templates.js'
 	child = exec cmd, (error, stdout, stderr)->
 		console.log error, stdout, stderr
 
@@ -144,7 +143,7 @@ task 'compile:templates', 'compiles .jade templates', ->
 # Copy Tasks
 task 'copy:templates', 'copies templates to app directory', ->
 	console.log 'copy:templates'
-	runCommand 'cp', ['-r', './source/templates/*', './app/js/templates/*']
+	runCommand 'cp', ['-r', './source/templates/*', './public/js/templates/*']
 	
 
 
@@ -194,28 +193,10 @@ StartServer = ->
 	  app.use express.bodyParser()
 	  app.use express.static(basedir)
 
+
 	app.get '*', (req, res)->
 		route = req.originalUrl
-		if '_exitServer' in route and isServerRunning
-			console.log 'Server Shut Down'
-			Res.Server.close()
-			isServerRunning = false
-		
-		if route.split('/')[1] in ['js', 'css', 'data']
-			console.log 'Data Route ... ' + route
-			resourcePath = path.resolve(basedir, route)
-			
-			# Filter out the path for holder.js
-			hindex = resourcePath.indexOf 'holder.js'
-			if hindex > -1
-				_path = resourcePath.substr(0, hindex) + '/holder.js'
-				res.sendfile path.resolve(basedir, resourcePath)
-			else
-				res.sendfile path.resolve(basedir, route)
-
-		else 
-			console.log('Requested... ' + req.originalUrl)
-			res.sendfile path.resolve(basedir, 'index.html')
+		res.sendfile path.resolve(basedir, 'index.html')
 
 	Res.Server = http.createServer(app).listen app.get('port'), ()->
 		console.log "Server Started"
