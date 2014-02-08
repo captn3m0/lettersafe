@@ -33,3 +33,4 @@ rcpt_to.in_host_list
 # Queue mail via smtp - see config/smtp_forward.ini for where your mail goes
 #get_email
 test_queue
+auth/flat_file
