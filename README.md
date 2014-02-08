@@ -10,14 +10,11 @@ LetterSafe is a hosted encrypted email service.
 
 
 ### Client
-The client uses a different node.js server instance.
-Hash Routes are working now
-
-
-Run the following command...
-'''
-bash
+The client uses a different node.js server instance.    
+Hash Routes are working now.    
+To run the client, execute the following in terminal.
+```bash
 cake server:start
-'''
+```
 
 And visit http://127.0.0.1:4332
