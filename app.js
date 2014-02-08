@@ -32,8 +32,12 @@ MongoClient.connect('mongodb://127.0.0.1:27017/letterafe', function(err, db) {
 	if(err) throw err;
   var routes = require('./routes')(db);
   var user = require('./routes/user')(db);
+  
   app.get('/', routes.index);
-  app.get('/users', user.list);
+  app.get('/login', user.login);
+  app.post('/login', user.postLogin);
+  app.get('/register', user.register);
+  app.post('/register', user.postRegister);
 
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
