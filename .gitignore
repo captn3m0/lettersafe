@@ -4,7 +4,6 @@
 *.sublime-workspace
 
 # Generated Files
-app/
 public/js/
 public/stylesheets/
 public/stylesheets/style.css
