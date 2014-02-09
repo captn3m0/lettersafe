@@ -35,8 +35,8 @@ module.exports = function(db){
 			db.collection('users').findOne({username:req.session.username}, function(err,data){
 				if(err) throw err;
 				if(data){
-					var pub = ursa.createPublicKey(data.keys.public, 'base64');
-					text = pub.encrypt(req.body.text);
+					//var pub = ursa.createPublicKey(data.keys.public, 'base64');
+					//text = pub.encrypt(req.body.text);
 					db.collection('emails').insert({
 						user: req.session.username,
 			            timestamp: Date.now(),

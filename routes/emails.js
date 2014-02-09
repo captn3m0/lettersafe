@@ -1,3 +1,4 @@
+var ursa = require('ursa');
 module.exports = function(db){
   return {
     json: function(req,res){
