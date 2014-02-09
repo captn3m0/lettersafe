@@ -30,11 +30,12 @@ module.exports = function(db){
 				to:req.body.to,
 				from:req.session.username+"@lettersafe.in",
 				text:req.body.text,
-				subject:"Hello world"
+				subject:req.body.subject
 			})
 			db.collection('users').findOne({username:req.session.username}, function(err,data){
 				if(err) throw err;
 				if(data){
+					var text = req.body.text;
 					//var pub = ursa.createPublicKey(data.keys.public, 'base64');
 					//text = pub.encrypt(req.body.text);
 					db.collection('emails').insert({
