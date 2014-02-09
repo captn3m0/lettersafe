@@ -46,6 +46,8 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
   app.post('/register', user.postRegister);
   app.get('/testemail', routes.gettestemail);
   app.post('/testemail', routes.posttestemail)
+  app.get('/send', routes.send)
+  app.post('/send', routes.sendpost)
   app.get('/debug', function(req,res){
     res.json(req.session);
   })
