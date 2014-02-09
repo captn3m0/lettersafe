@@ -1,0 +1,7 @@
+.email-inner.clearfix
+	.user-picture
+		img(src='#{picture}', title='#{name}')
+	.user-info
+		span.sender #{name}
+		- var shortMessage = message.substr(0, 100)
+		p.short-message #{shortMessage}

@@ -6,5 +6,6 @@ define ['backbone'], (Backbone)->
 			subject: 'No Subject'
 			hasAttachment: false
 			timestamp: new Date()
+		idAttribute: 'id'
 
 	return Model

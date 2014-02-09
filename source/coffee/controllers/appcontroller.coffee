@@ -6,6 +6,8 @@ define ['marionette', 'controllers/content'], (Marionette, ContentController)->
 			ContentController.renderView 'views/home'
 		renderInbox: ->
 			ContentController.renderView 'views/inbox'
+		renderEmail: (id)->
+			ContentController.renderEmail 'views/inbox', id
 
 	Controller = new AppController()
 	return Controller

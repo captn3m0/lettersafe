@@ -6,7 +6,7 @@ define ['marionette', 'vent', 'regions/content'], (Marionette, vent, contentRegi
 			requirejs [viewURL], (view)->
 				vent.trigger 'content:showview', view
 				
-			
-
+		renderEmail: (viewURL, id)->
+			@.renderView viewURL
 	
 	return new Controller()

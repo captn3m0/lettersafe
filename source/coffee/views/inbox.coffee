@@ -1,22 +1,35 @@
-define ['marionette', 'collections/emails', 'controllers/emails'], (Marionette, Collection, Controller)->
+define ['marionette', 'collections/emails', 'controllers/emails', 'vent'], (Marionette, Collection, Controller, vent)->
 
+
+	EmailItem = Marionette.ItemView.extend
+		template: jade.templates['email-item']
+		tagName: 'li'
+		className: 'email-item'
+		events:
+			'click .sender': 'handleClick'
+			'click .user-picture': 'handleClick'
+			'click .short-message': 'handleClick'
+		handleClick: ->
+			url = Backbone.history.fragment + '/' + @.model.get('id')
+			console.log url 
+			# Backbone.history.navigate Backbone.history.fragment + '/' + @.model.get('id')
+			# vent.trigger 'header:info:update', @.model
+		
+			
 
 	EmailsView = Marionette.CollectionView.extend
-		template: jade.templates['inbox']
+		tagName: 'ul'
+		className: 'list-unstyled emails-list'
+		itemView: EmailItem
+		itemViewContainer: '.emails-list'
 		collection: new Collection []
-		collectionEvents:
-			'add': 'renderEmailItem'
-		renderEmailItem: (model)->
-			console.log model
-		onRender: ->
-			console.log 'Rendering UL'
-			window.aa = @.collection
-			@.collection.fetch
-				success: (collection)->
-					console.log 'Collection Ready... '
-
-
-
+			
+	
 	View = new EmailsView()
+
+	View.on 'render', ()->
+		View.collection.fetch
+			success: (collection)->
+				console.log 'Collection Ready... '
 	
 	return View

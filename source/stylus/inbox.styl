@@ -1,4 +1,52 @@
 ul.emails-list
 	margin 0
 	padding 0
-	
+
+	li.email-item
+		height 90px
+		background-color #ccc
+		box-shadow inset 0px 4px 20px 0px rgba(#000, 0.1)
+
+		.email-inner
+			background-color #fff
+			border-bottom 1px #eee solid
+			transition all .3s ease-in-out
+			width 100%
+			height inherit
+			box-sizing border-box
+			cursor pointer
+			.user-picture, .user-info
+				display inline
+				height inherit
+			.user-picture
+				display block
+				float left
+				width 70px
+				box-sizing border-box
+				padding 15px 11px
+				position relative
+				z-index 200
+			.user-info
+				width inherit
+				overflow hidden
+				text-overflow clip
+				margin-left 80px
+				box-sizing border-box
+				.sender
+					display block
+					position relative
+					top -10px
+					font-family baseFontLight
+					font-size 20px
+					color #444
+				.short-message
+					color #666
+					font-size 14px
+					font-family baseFont
+					position relative
+					top -10px
+
+			&:hover
+				background-color #f8f8f8
+				.user-info .sender
+					color color_base
