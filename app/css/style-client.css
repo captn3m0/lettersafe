@@ -1,0 +1,607 @@
+p,
+span,
+div,
+ul,
+li,
+a,
+figure {
+  font-family: "SourceSansProRegular";
+  font-weight: normal;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 2.2em;
+}
+h4 {
+  font-size: 1.8em;
+}
+h5 {
+  font-size: 1.4em;
+}
+h6 {
+  font-size: 1.2em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #33b5e5;
+}
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+h1,
+h2 {
+  font-family: "SourceSansProExtraLight";
+}
+h3 {
+  font-family: "SourceSansProLight";
+}
+h2.bold {
+  font-family: "SourceSansProRegular";
+}
+h2.dark {
+  color: #555;
+}
+.form-control {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn,
+.btn.btn-default {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+.container-fluid {
+  padding: 0 15px;
+}
+.container-fluid[ data-fullwidth = 'true'] {
+  padding: 0;
+}
+@media (max-width: 767px) {
+  .container-fluid {
+    padding: 0;
+  }
+}
+.list-vertical li {
+  display: block;
+  margin-bottom: 20px;
+}
+.list-padded li {
+  padding: 0 15px 15px 0;
+}
+.row.whiterow {
+  background-color: #fff;
+  border-top: 1px #ddd solid;
+  border-bottom: 1px #ddd solid;
+}
+.page-header.bookmark {
+  margin-top: 80px;
+}
+.page-header.alt h1 {
+  display: block;
+  text-align: center;
+}
+.page-header.alt h1 small {
+  display: block;
+  margin-top: 20px;
+  font-size: 50%;
+}
+.row.row-full-width {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row.row-padded {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.layer,
+body,
+.app-main,
+.app-content,
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
+  zoom: 1;
+}
+.layer:before,
+body:before,
+.app-main:before,
+.app-content:before,
+.app-header:before,
+.layer:after,
+body:after,
+.app-main:after,
+.app-content:after,
+.app-header:after {
+  content: "";
+  display: table;
+}
+.layer:after,
+body:after,
+.app-main:after,
+.app-content:after,
+.app-header:after {
+  clear: both;
+}
+.region {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  background: none;
+  overflow: hidden;
+}
+body {
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  background-color: #222;
+}
+.app-main {
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  zoom: 1;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+.app-main:before,
+.app-main:after {
+  content: "";
+  display: table;
+}
+.app-main:after {
+  clear: both;
+}
+.app-content {
+  top: 60px;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  overflow-y: auto;
+}
+.app-header {
+  right: 0px;
+  height: 60px;
+  z-index: 1000;
+  overflow: initial;
+}
+.app-header .header-inner {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #33b5e5;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px #1cabe0 solid;
+}
+.app-header .mainLogo,
+.app-header nav.settings {
+  font-size: 22px;
+  font-family: "SourceSansProLight";
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 990;
+}
+.app-header .mainLogo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.app-header .mainLogo .brand,
+.app-header .mainLogo span.name {
+  display: inline-block;
+  padding: 16px 15px 13px 15px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  font-family: "SourceSansProLight";
+}
+.app-header .mainLogo .brand {
+  width: 60px;
+  position: relative;
+  z-index: 980;
+}
+.app-header .mainLogo span.name {
+  border-left: none;
+  position: relative;
+  padding-left: 0px;
+  padding-right: 15px;
+  z-index: 970;
+  margin-left: 0px;
+}
+.app-header .mainLogo:hover,
+.app-header .mainLogo:active,
+.app-header .mainLogo:focus {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.app-header .mainLogo:hover .brand,
+.app-header .mainLogo:active .brand,
+.app-header .mainLogo:focus .brand {
+  background-color: rgba(0,0,0,0.1);
+}
+.app-header .mainLogo:active .brand {
+  background-color: rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.1);
+}
+.app-header ul.settings-menu {
+  display: block;
+  float: right;
+  margin-top: 18px;
+  margin-right: 15px;
+}
+.app-header ul.settings-menu li {
+  font-size: 22px;
+  color: #fff;
+}
+.app-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 250px;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out;
+  -ms-transition: -ms-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  background-color: #33b5e5;
+  color: theme_font_color_light;
+  z-index: 100;
+  -webkit-box-shadow: 0px 0px 100px 20px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 100px 20px rgba(0,0,0,0.4);
+}
+.app-menu .menu-header {
+  height: 50px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px rgba(0,0,0,0.05) solid;
+}
+.app-menu .menu-header .do-hideMenu {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+  padding: 10px 10px 8px 10px;
+}
+.app-menu .menu-header .do-hideMenu i {
+  padding: 9px;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  width: auto;
+  font-size: 14px;
+  color: #fff;
+}
+.app-menu .menu-header .do-hideMenu:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+.app-menu .menu-header .do-hideMenu:active {
+  background-color: rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0px 2px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 2px 5px 0px rgba(0,0,0,0.1);
+}
+.app-menu .menu-header span.menu-title {
+  margin-left: 5px;
+  font-family: "SourceSansProLight";
+  font-size: 22px;
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+}
+.app-menu[data-visibility='visible'] {
+  -webkit-transform: translate3d(0, 0, 0) rotateY(0deg);
+  -moz-transform: translate3d(0, 0, 0) rotateY(0deg);
+  -o-transform: translate3d(0, 0, 0) rotateY(0deg);
+  -ms-transform: translate3d(0, 0, 0) rotateY(0deg);
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+}
+.app-menu[data-visibility='visible'] + .app-main {
+  -webkit-transform: scale(0.8) translate3d(157px, 0, 0);
+  -moz-transform: scale(0.8) translate3d(157px, 0, 0);
+  -o-transform: scale(0.8) translate3d(157px, 0, 0);
+  -ms-transform: scale(0.8) translate3d(157px, 0, 0);
+  transform: scale(0.8) translate3d(157px, 0, 0);
+}
+.app-menu[data-visibility='hidden'] {
+  -webkit-transform: translate3d(-250px, 0, 0) rotateY(-45deg);
+  -moz-transform: translate3d(-250px, 0, 0) rotateY(-45deg);
+  -o-transform: translate3d(-250px, 0, 0) rotateY(-45deg);
+  -ms-transform: translate3d(-250px, 0, 0) rotateY(-45deg);
+  transform: translate3d(-250px, 0, 0) rotateY(-45deg);
+}
+.app-menu[data-visibility='hidden'] + .app-main {
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  -moz-transform: scale(1) translate3d(0, 0, 0);
+  -o-transform: scale(1) translate3d(0, 0, 0);
+  -ms-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+}
+.app-menu ul.menu-items-list li .menu-item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  border-top: 1px transparent solid;
+  border-bottom: 1px transparent solid;
+  padding: 8px 15px 5px 15px;
+  position: relative;
+  z-index: 111;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.app-menu ul.menu-items-list li .menu-item span.icon {
+  font-size: 18px;
+  margin-right: 15px;
+  position: relative;
+  z-index: 112;
+}
+.app-menu ul.menu-items-list li .menu-item span.text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "SourceSansProLight";
+  font-size: 24px;
+}
+.app-menu ul.menu-items-list li .menu-item:hover {
+  border-top-color: #1cabe0;
+  border-bottom-color: #1cabe0;
+  background-color: #47bce8;
+}
+.app-menu ul.menu-items-list li .menu-item:active {
+  border-top-color: #1ca5d8;
+  border-bottom-color: #1ca5d8;
+  background-color: #2cb2e4;
+  -webkit-box-shadow: inset 0px 2px 12px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 2px 12px 0px rgba(0,0,0,0.1);
+}
+.app-menu ul.menu-items-list li .menu-item:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: -1px;
+  width: 6px;
+  height: 49px;
+  content: '';
+  z-index: 110;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.app-menu ul.menu-items-list li .menu-item.active:after {
+  background-color: rgba(255,255,255,0.9);
+}
+.app-menu ul.menu-items-list li:first-child .menu-item {
+  border-top: none;
+}
+.btn.btn-icon {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #fff;
+}
+.btn.btn-icon:hover,
+.btn.btn-icon:active {
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+.btn.btn-icon span.text {
+  margin-left: 5px;
+}
+.btn-glossy {
+  position: relative;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+}
+.btn-glossy:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255,255,255,0.8);
+  content: '';
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.1);
+  border-left: 1px rgba(0,0,0,0.1) solid;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+::-webkit-scrollbar-track:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.1);
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  -ms-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+.loginbox {
+  margin-top: 10%;
+  height: 400px;
+  background-color: #fcfcfc;
+  border: 1px #e0e0e0 solid;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 40px 60px 0 60px;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+}
+ul.emails-list {
+  margin: 0;
+  padding: 0;
+}
+ul.emails-list li.email-item {
+  height: 90px;
+  background-color: #ccc;
+  -webkit-box-shadow: inset 0px 4px 20px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 4px 20px 0px rgba(0,0,0,0.1);
+}
+ul.emails-list li.email-item .email-inner {
+  background-color: #fff;
+  border-bottom: 1px #eee solid;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: inherit;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+ul.emails-list li.email-item .email-inner .user-picture,
+ul.emails-list li.email-item .email-inner .user-info {
+  display: inline;
+  height: inherit;
+}
+ul.emails-list li.email-item .email-inner .user-picture {
+  display: block;
+  float: left;
+  width: 70px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px 11px;
+  position: relative;
+  z-index: 200;
+}
+ul.emails-list li.email-item .email-inner .user-info {
+  width: inherit;
+  overflow: hidden;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  margin-left: 80px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ul.emails-list li.email-item .email-inner .user-info .sender {
+  display: block;
+  position: relative;
+  top: -10px;
+  font-family: "SourceSansProLight";
+  font-size: 20px;
+  color: #444;
+}
+ul.emails-list li.email-item .email-inner .user-info .short-message {
+  color: #666;
+  font-size: 14px;
+  font-family: "SourceSansProRegular";
+  position: relative;
+  top: -10px;
+}
+ul.emails-list li.email-item .email-inner:hover {
+  background-color: #f8f8f8;
+}
+ul.emails-list li.email-item .email-inner:hover .user-info .sender {
+  color: #33b5e5;
+}
+ul.emails-list li.email-item.active .email-inner {
+  background-color: #41bae7;
+  border-bottom-color: #27b0e3;
+}
+ul.emails-list li.email-item.active .email-inner .user-info .sender {
+  color: #fff;
+}
+ul.emails-list li.email-item.active .email-inner .user-info .short-message {
+  color: #f5f5f5;
+}
+ul.emails-list li.email-item .user-info .message.fullmode {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2500;
+  background-color: #fff;
+  font-size: 16px;
+}
