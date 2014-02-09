@@ -38,12 +38,14 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
 	if(err) throw err;
   var routes = require('./routes')(db);
   var user = require('./routes/user')(db);
-  
+  var emails = require('./routes/emails')(db);
+
   app.get('/', routes.index);
   app.get('/login', user.login);
   app.post('/login', user.postLogin);
   app.get('/register', user.register);
   app.post('/register', user.postRegister);
+  app.get('/emails.json', emails.json);
   app.get('/testemail', routes.gettestemail);
   app.post('/testemail', routes.posttestemail)
   app.get('/send', routes.send)
