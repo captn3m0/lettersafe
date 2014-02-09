@@ -2,11 +2,11 @@ define ['marionette', 'vent', 'regions/content'], (Marionette, vent, contentRegi
 
 	Controller = Marionette.Controller.extend
 
-		renderView: (viewURL)-> 
+		renderView: (viewURL, guid)-> 
 			requirejs [viewURL], (view)->
-				vent.trigger 'content:showview', view
+				if guid?
+					vent.trigger 'content:showBigEmail', guid
+				else vent.trigger 'content:showview', view
 				
-		renderEmail: (viewURL, id)->
-			@.renderView viewURL
 	
 	return new Controller()

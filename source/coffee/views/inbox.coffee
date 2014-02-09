@@ -10,9 +10,9 @@ define ['marionette', 'collections/emails', 'controllers/emails', 'vent'], (Mari
 			'click .user-picture': 'handleClick'
 			'click .short-message': 'handleClick'
 		handleClick: ->
-			url = Backbone.history.fragment + '/' + @.model.get('id')
+			url = Backbone.history.getHash().split('/')[0] + '/' + @.model.get('guid')
 			console.log url 
-			# Backbone.history.navigate Backbone.history.fragment + '/' + @.model.get('id')
+			Backbone.history.navigate url, {trigger:true}
 			# vent.trigger 'header:info:update', @.model
 		
 			
