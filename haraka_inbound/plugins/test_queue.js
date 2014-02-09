@@ -17,7 +17,7 @@ exports.hook_queue = function(next, connection) {
         };
 
         var rcpt = connection.transaction.rcpt_to[0];
-        rcpt = rcpt.toString();
+        rcpt = rcpt.user;
 
         parser.on('finish', function () {
           db.collection('emails').insert({
