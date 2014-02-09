@@ -26,8 +26,12 @@ define ['backbone', 'models/menu-item'], (Backbone, MenuItemModel)->
 			iconClass: 'fa fa-fw fa-trash-o'
 		},
 		{
-			name: 'Spam'
-			iconClass: 'fa fa-fw fa-ban'
+			name: 'Register',
+			iconClass: 'fa fa-fw fa-sign-in'
+		},
+		{
+			name: 'Logout',
+			iconClass: 'fa fa-fw fa-sign-out'
 		}
 	]
 	

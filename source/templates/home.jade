@@ -1,1 +1,15 @@
-h2 Home
+.row.loginbox
+	.col-md-6.col-md-offset-3
+		.row
+			h1.text-center LetterSafe.in
+		.row
+			.form(role="form")
+				.form-group
+					label(for="username") Username
+					input.form-control#username(type="text", name='username', placeholder="Enter username")
+
+				.form-group
+					label(for="password") Password
+					input.form-control#password(type="password", autocomplete='off', name="password", placeholder="Password")
+				.form-group
+					button.btn.btn-default.login-button(role="button") Log In

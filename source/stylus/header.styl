@@ -11,16 +11,16 @@
 		padding 0
 		width 100%
 		height 60px
-		background linear-gradient(top, #fefefe, #fafafa)
+		background-color color_base
 		box-sizing border-box
-		border-bottom 1px #eee solid
+		border-bottom 1px darken(color_base, 10%) solid
 
 
 .app-header
 	.mainLogo, nav.settings
 		font-size 22px
 		font-family baseFontLight
-		color #888
+		color #fff
 		cursor pointer
 		transition all .3s ease-in-out
 		z-index 990
@@ -45,8 +45,20 @@
 		&:hover, &:active, &:focus
 			opacity 1
 			.brand
-				color color_base
+				background-color rgba(#000, 0.1)
 		&:active
 			.brand
-				color darken(color_base, 10%)
+				background-color rgba(#000, 0.1)
 				box-shadow inset 0px 2px 8px 0px rgba(#000, 0.1)
+
+
+
+.app-header
+	ul.settings-menu
+		display block
+		float right
+		margin-top 18px
+		margin-right 15px
+		li 
+			font-size 22px
+			color #fff

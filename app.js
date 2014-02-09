@@ -28,6 +28,7 @@ app.use(express.session({secret: "lettersafe.secret"}));
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -40,7 +41,9 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
   var user = require('./routes/user')(db);
   var emails = require('./routes/emails')(db);
 
-  app.get('/', routes.index);
+  //app.get('/', routes.index);
+  app.get('/', function(req, res){res.sendfile(path.resolve(__dirname, 'app/index.html'))});
+  
   app.get('/login', user.login);
   app.post('/login', user.postLogin);
   app.get('/register', user.register);

@@ -26,10 +26,11 @@ module.exports = function(db){
               var private_key = crypto.decrypt(data.keys.private);
               req.session.private_key = private_key;
               req.session.username = username;
-              res.redirect('/send');
+              // res.redirect('/send');
+              res.send("OK")
             }
             else{
-              res.send("Wrong password")
+              res.send("Fail")
             }
           });
         }
@@ -58,7 +59,11 @@ module.exports = function(db){
           private:  encrypted_private_key
         }
       }, function(err, inserted){
-        if(err) throw err;
+        if(err){
+          res.send('Fail');
+          throw err;
+          
+        }
         res.send('User account registered for '+username+"@lettersafe.in");
       });
     }
