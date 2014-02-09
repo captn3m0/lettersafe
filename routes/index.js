@@ -1,3 +1,4 @@
+var ursa=require('ursa');
 module.exports = function(db){
 	return {
 		index: function(req, res){
@@ -22,6 +23,8 @@ module.exports = function(db){
 			res.render('send', {title:"Compose Email", username:req.session.username})
 		},
 		sendpost: function(req, res){
+			if(req.session.username == undefined)
+				res.redirect('/login');
 			var send_email = require('../lib/send_email');
 			send_email.send({
 				to:req.body.to,
@@ -29,16 +32,25 @@ module.exports = function(db){
 				text:req.body.text,
 				subject:"Hello world"
 			})
-			db.collection('emails').insert({
-				user: req.session.username,
-	            timestamp: Date.now(),
-	            label: 'sent',
-	            msg: req.body.text
-			}, function(err, data){
+			db.collection('users').findOne({username:req.session.username}, function(err,data){
 				if(err) throw err;
-				console.log(data);
+				if(data){
+					var pub = ursa.createPublicKey(data.keys.public, 'base64');
+					text = pub.encrypt(req.body.text);
+					db.collection('emails').insert({
+						user: req.session.username,
+			            timestamp: Date.now(),
+			            label: 'sent',
+			            msg: text
+					}, function(err, data){
+						if(err) throw err;
+					})
+					res.send("Email sent");
+				}
+				else{
+					res.send("User not found")
+				}
 			})
-			res.send("Email sent");	
 		}
 	};
 }
