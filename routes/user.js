@@ -26,7 +26,7 @@ module.exports = function(db){
               var private_key = crypto.decrypt(data.keys.private);
               req.session.private_key = private_key;
               req.session.username = username;
-              res.send(data);
+              res.redirect('/send');
             }
             else{
               res.send("Wrong password")
