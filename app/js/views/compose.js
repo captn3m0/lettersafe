@@ -7,21 +7,15 @@ define(['marionette'], function(Marionette) {
       'click .do-sendmail': 'sendMail'
     },
     initialize: function() {
-      console.log('Compose Render');
-      return $(".do-sendmail").removeClass('hidden');
+      return console.log('Compose Render');
     },
     sendMail: function() {
       var obj;
       obj = {};
       obj.to = this.$el.find('#toaddress');
-      obj.from = 'nanuclickity';
       obj.text = this.$el.find('#text');
       obj.subject = this.$el.find('#tosubject');
-      return $.post('/send', obj, function(response) {
-        console.log('Sending... ');
-        console.log('This is the response...');
-        return console.log(response);
-      });
+      return console.log(obj);
     }
   });
   View = new ComposeView();

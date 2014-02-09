@@ -1,8 +1,8 @@
 .row.row-padded
-	.form(role='form')
+	form.form(role='form', method='post', action='/send')
 		.form-group
 			label(for='toaddress') To: 
-			input.form-control#toaddress(type='email', name='toaddress', placeholder="Reciepient's Email")
+			input.form-control#toaddress(type='text', name='toaddress', placeholder="Reciepient's Email")
 		.form-group
 			label(for='tosubject') Subject:  
 			input.form-control#tosubject(type='text', name='tosubject', placeholder="Subject")
@@ -12,4 +12,4 @@
 		br
 		br
 		.form-group
-			button.btn.btn-info.do-sendmail Send
+			button.btn.btn-info.do-sendmail(type='submit') Send
