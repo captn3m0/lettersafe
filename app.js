@@ -6,6 +6,11 @@
 var MongoClient = require('mongodb').MongoClient;
 var express = require('express');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var privateKey  = fs.readFileSync('../certs/lettersafe.in.key', 'utf8');
+var certificate = fs.readFileSync('../certs/lettersafe.in.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
 var path = require('path');
 var app = express();
 
@@ -41,10 +46,12 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lettersafe', function(err, db) {
   app.post('/register', user.postRegister);
   app.get('/testemail', routes.gettestemail);
   app.post('/testemail', routes.posttestemail)
+  app.get('/send', routes.send)
+  app.post('/send', routes.sendpost)
   app.get('/debug', function(req,res){
     res.json(req.session);
   })
-  http.createServer(app).listen(app.get('port'), function(){
+  https.createServer(credentials, app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });
 
