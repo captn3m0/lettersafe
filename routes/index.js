@@ -1,7 +1,7 @@
 module.exports = function(db){
 	return {
 		index: function(req, res){
-			res.render('index', { title: 'Express' });
+			res.render('index', { title: 'LetterSafe' });
 		},
 		gettestemail: function(req,res){
 			res.render('testemail', {title: "Send test email"});
