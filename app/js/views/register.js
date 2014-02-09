@@ -10,7 +10,7 @@ define(['marionette'], function(Marionette) {
       var ppass, uname;
       uname = this.$el.find('#username').val();
       ppass = this.$el.find('#password').val();
-      return $.post('https://localhost:3000/register', {
+      return $.post('/register', {
         username: uname,
         password: ppass
       }, function(response) {

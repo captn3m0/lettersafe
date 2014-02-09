@@ -3,7 +3,7 @@ define(['backbone', 'models/email-item'], function(Backbone, Model) {
   var EmailList;
   EmailList = Backbone.Collection.extend({
     model: Model,
-    url: 'https://localhost:3000/emails.json',
+    url: '/emails.json',
     initialize: function(models, options) {
       if (options != null) {
         if (options.fetchNumber != null) {

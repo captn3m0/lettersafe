@@ -10,7 +10,7 @@ define(['marionette'], function(Marionette) {
       var ppass, uname;
       uname = this.$el.find('#username').val();
       ppass = this.$el.find('#password').val();
-      return $.post('https://localhost:3000/login', {
+      return $.post('/login', {
         username: uname,
         password: ppass
       }, function(response) {
@@ -27,7 +27,7 @@ define(['marionette'], function(Marionette) {
     },
     onRender: function() {
       this.$el.attr('data-fullwidth', 'true');
-      return $.getJSON('https://localhost:3000/debug', function(data) {
+      return $.getJSON('/debug', function(data) {
         if (data.username != null) {
           console.log('Already logged in... Proceeding.');
           return Backbone.history.navigate('inbox', {

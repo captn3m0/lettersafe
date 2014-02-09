@@ -9,7 +9,7 @@ define ['marionette'], (Marionette)->
 		 	uname = @.$el.find('#username').val()
 		 	ppass = @.$el.find('#password').val()
 
-		 	$.post 'https://localhost:3000/register', {username: uname, password: ppass}, (response)->
+		 	$.post '/register', {username: uname, password: ppass}, (response)->
 		 		if response is 'Fail'
 		 			Backbone.history.navigate 'register', {trigger: true}
 		 		else Backbone.history.navigate 'inbox', {trigger:true}

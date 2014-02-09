@@ -7,7 +7,7 @@ define(['marionette'], function(Marionette) {
       console.log('Fetching Recent Emails...');
       if (typeof callback === 'function') {
         templateURL = './data/recentEmails.json';
-        mongoURL = 'https://localhost:3000/emails.json';
+        mongoURL = '/emails.json';
         return $.getJSON(mongoURL, function(response) {
           if (!response) {
             return console.error('No data available');

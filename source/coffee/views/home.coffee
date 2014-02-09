@@ -9,7 +9,7 @@ define ['marionette'], (Marionette)->
 		 	uname = @.$el.find('#username').val()
 		 	ppass = @.$el.find('#password').val()
 
-		 	$.post 'https://localhost:3000/login', {username: uname, password: ppass}, (response)->
+		 	$.post '/login', {username: uname, password: ppass}, (response)->
 		 		if response is 'OK'
 		 			Backbone.history.navigate 'inbox', {trigger:true}
 		 		else
@@ -21,7 +21,7 @@ define ['marionette'], (Marionette)->
 			# Full width on container
 			@.$el.attr 'data-fullwidth', 'true'
 
-			$.getJSON 'https://localhost:3000/debug', (data)->
+			$.getJSON '/debug', (data)->
 				if data.username?
 					console.log 'Already logged in... Proceeding.'
 					Backbone.history.navigate 'inbox', {trigger:true}
