@@ -10,6 +10,7 @@ define ['marionette', 'controllers/appcontroller'], (Marionette, AppController)-
 			'inbox': 'renderInbox'
 			'inbox/:guid': 'renderEmail'
 			'register': 'renderRegister'
+			'compose': 'renderCompose'
 
 		doubleCheck: ->
 			console.log 'Still Ready'

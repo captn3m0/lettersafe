@@ -109,8 +109,9 @@ h2.dark {
   margin-right: 0;
 }
 .row.row-padded {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 10px;
 }
 .layer,
 body,
@@ -282,12 +283,21 @@ body {
 .app-header ul.settings-menu {
   display: block;
   float: right;
-  margin-top: 18px;
-  margin-right: 15px;
 }
 .app-header ul.settings-menu li {
   font-size: 22px;
   color: #fff;
+  padding: 16px 15px 12px 15px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.app-header ul.settings-menu li:hover,
+.app-header ul.settings-menu li:active {
+  background-color: rgba(0,0,0,0.1);
+}
+.app-header ul.settings-menu li:active {
+  -webkit-box-shadow: inset 0px 4px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 4px 10px 0px rgba(0,0,0,0.1);
 }
 .app-menu {
   position: fixed;
@@ -604,4 +614,5 @@ ul.emails-list li.email-item .user-info .message.fullmode {
   z-index: 2500;
   background-color: #fff;
   font-size: 16px;
+  padding: 10px 10px;
 }

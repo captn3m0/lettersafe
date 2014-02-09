@@ -5,6 +5,10 @@ define ['backbone', 'models/menu-item'], (Backbone, MenuItemModel)->
 
 	menuItems = [
 		{
+			name: 'Compose',
+			iconClass: 'fa fa-fw fa-file'
+		}
+		{
 			name: 'Inbox'
 			iconClass: 'fa fa-fw fa-inbox'
 		},

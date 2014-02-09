@@ -4,6 +4,7 @@ define ['marionette', 'vent', 'regions/content'], (Marionette, vent, contentRegi
 
 		renderView: (viewURL, guid)-> 
 			requirejs [viewURL], (view)->
+				if viewURL is not 'views/compose' then $(".do-sendmail").addClass('hidden')
 				if guid?
 					vent.trigger 'content:showBigEmail', guid
 				else vent.trigger 'content:showview', view

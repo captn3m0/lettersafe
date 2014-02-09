@@ -4,6 +4,9 @@ define(['marionette', 'vent', 'regions/content'], function(Marionette, vent, con
   Controller = Marionette.Controller.extend({
     renderView: function(viewURL, guid) {
       return requirejs([viewURL], function(view) {
+        if (viewURL === !'views/compose') {
+          $(".do-sendmail").addClass('hidden');
+        }
         if (guid != null) {
           return vent.trigger('content:showBigEmail', guid);
         } else {

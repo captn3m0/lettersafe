@@ -23,6 +23,7 @@ define ['marionette', 'vent'], (Marionette, vent)->
 				.removeClass('fullmode')
 
 			vent.trigger 'header:update:name', 'Inbox'
+			Backbone.history.navigate 'inbox', {trigger:true}
 
 		showMenu: -> vent.trigger 'menu:show'
 		updateName: (_name)->

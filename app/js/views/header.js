@@ -16,7 +16,10 @@ define(['marionette', 'vent'], function(Marionette, vent) {
       console.log(element);
       $(element).parent().parent().find('.user-info .short-message').toggle();
       $(element).hide().addClass('hidden').removeClass('fullmode');
-      return vent.trigger('header:update:name', 'Inbox');
+      vent.trigger('header:update:name', 'Inbox');
+      return Backbone.history.navigate('inbox', {
+        trigger: true
+      });
     },
     showMenu: function() {
       return vent.trigger('menu:show');

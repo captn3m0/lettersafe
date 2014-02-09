@@ -17,6 +17,10 @@ define(['marionette', 'controllers/content', 'vent'], function(Marionette, Conte
     renderRegister: function() {
       ContentController.renderView('views/register');
       return vent.trigger('header:update:name', 'Register');
+    },
+    renderCompose: function() {
+      ContentController.renderView('views/compose');
+      return vent.trigger('header:update:name', 'Compose Mail');
     }
   });
   Controller = new AppController();

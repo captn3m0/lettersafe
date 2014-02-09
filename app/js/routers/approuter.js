@@ -8,7 +8,8 @@ define(['marionette', 'controllers/appcontroller'], function(Marionette, AppCont
       'home': 'renderHome',
       'inbox': 'renderInbox',
       'inbox/:guid': 'renderEmail',
-      'register': 'renderRegister'
+      'register': 'renderRegister',
+      'compose': 'renderCompose'
     },
     doubleCheck: function() {
       return console.log('Still Ready');

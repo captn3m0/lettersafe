@@ -14,6 +14,10 @@ define ['marionette', 'controllers/content', 'vent'], (Marionette, ContentContro
 		renderRegister: ->
 			ContentController.renderView 'views/register'
 			vent.trigger 'header:update:name', 'Register'
+		renderCompose: ->
+			ContentController.renderView 'views/compose'
+			vent.trigger 'header:update:name', 'Compose Mail'
+
 
 	Controller = new AppController()
 	return Controller

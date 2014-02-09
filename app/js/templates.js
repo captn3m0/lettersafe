@@ -184,6 +184,15 @@ jade.render = function(node, template, data) {
   node.innerHTML = tmp;
 };
 
+jade.templates["compose"] = function(locals, attrs, escape, rethrow, merge) {
+attrs = attrs || jade.attrs; escape = escape || jade.escape; rethrow = rethrow || jade.rethrow; merge = merge || jade.merge;
+var buf = [];
+with (locals || {}) {
+var interp;
+buf.push('<div class="row row-padded"><div role="form" class="form"><div class="form-group"><label for="toaddress">To: </label><input id="toaddress" type="email" name="toaddress" placeholder="Reciepient\'s Email" class="form-control"/></div><div class="form-group"><label for="tosubject">Subject:  </label><input id="tosubject" type="text" name="tosubject" placeholder="Subject" class="form-control"/></div><br/><div class="form-group"><textarea id="text" placeholder="Enter your message here" class="form-control"></textarea></div><br/><br/><div class="form-group"><button class="btn btn-info do-sendmail">Send</button></div></div></div>');
+}
+return buf.join("");
+}
 jade.templates["email-item"] = function(locals, attrs, escape, rethrow, merge) {
 attrs = attrs || jade.attrs; escape = escape || jade.escape; rethrow = rethrow || jade.rethrow; merge = merge || jade.merge;
 var buf = [];

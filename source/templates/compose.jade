@@ -1,0 +1,15 @@
+.row.row-padded
+	.form(role='form')
+		.form-group
+			label(for='toaddress') To: 
+			input.form-control#toaddress(type='email', name='toaddress', placeholder="Reciepient's Email")
+		.form-group
+			label(for='tosubject') Subject:  
+			input.form-control#tosubject(type='text', name='tosubject', placeholder="Subject")
+		br
+		.form-group
+			textarea.form-control#text(placeholder='Enter your message here')
+		br
+		br
+		.form-group
+			button.btn.btn-info.do-sendmail Send
