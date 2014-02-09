@@ -17,6 +17,8 @@ module.exports = function(db){
 			res.send("Email sent");
 		},
 		send: function(req, res){
+			if(req.session.username == undefined)
+				res.redirect('/login');
 			res.render('send', {title:"Compose Email", username:req.session.username})
 		},
 		sendpost: function(req, res){
@@ -26,6 +28,15 @@ module.exports = function(db){
 				from:req.body.from+"@lettersafe.in",
 				text:req.body.text,
 				subject:"Hello world"
+			})
+			db.collection('emails').insert({
+				user: req.session.username,
+	            timestamp: Date.now(),
+	            label: 'sent',
+	            msg: req.body.text
+			}, function(err, data){
+				if(err) throw err;
+				console.log(data);
 			})
 			res.send("Email sent");	
 		}
