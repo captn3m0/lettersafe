@@ -189,7 +189,7 @@ attrs = attrs || jade.attrs; escape = escape || jade.escape; rethrow = rethrow |
 var buf = [];
 with (locals || {}) {
 var interp;
-buf.push('<div class="row row-padded"><form role="form" method="post" action="/send" class="form"><div class="form-group"><label for="toaddress">To: </label><input id="toaddress" type="text" name="toaddress" placeholder="Reciepient\'s Email" class="form-control"/></div><div class="form-group"><label for="tosubject">Subject:  </label><input id="tosubject" type="text" name="tosubject" placeholder="Subject" class="form-control"/></div><br/><div class="form-group"><textarea id="text" placeholder="Enter your message here" class="form-control"></textarea></div><br/><br/><div class="form-group"><button type="submit" class="btn btn-info do-sendmail">Send</button></div></form></div>');
+buf.push('<div class="row row-padded"><form role="form" method="post" action="/send" class="form"><div class="form-group"><label for="to">To: </label><input id="to" type="text" name="to" placeholder="Reciepient\'s Email" class="form-control"/></div><div class="form-group"><label for="subject">Subject:  </label><input id="subject" type="text" name="subject" placeholder="Subject" class="form-control"/></div><br/><div class="form-group"><textarea id="text" name="text" placeholder="Enter your message here" class="form-control"></textarea></div><br/><br/><div class="form-group"><button type="submit" class="btn btn-info do-sendmail">Send</button></div></form></div>');
 }
 return buf.join("");
 }

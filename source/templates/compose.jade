@@ -1,14 +1,14 @@
 .row.row-padded
 	form.form(role='form', method='post', action='/send')
 		.form-group
-			label(for='toaddress') To: 
-			input.form-control#toaddress(type='text', name='toaddress', placeholder="Reciepient's Email")
+			label(for='to') To: 
+			input.form-control#to(type='text', name='to', placeholder="Reciepient's Email")
 		.form-group
-			label(for='tosubject') Subject:  
-			input.form-control#tosubject(type='text', name='tosubject', placeholder="Subject")
+			label(for='subject') Subject:  
+			input.form-control#subject(type='text', name='subject', placeholder="Subject")
 		br
 		.form-group
-			textarea.form-control#text(placeholder='Enter your message here')
+			textarea.form-control#text(name='text', placeholder='Enter your message here')
 		br
 		br
 		.form-group
