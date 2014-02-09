@@ -28,7 +28,7 @@ module.exports = function(db){
 			var send_email = require('../lib/send_email');
 			send_email.send({
 				to:req.body.to,
-				from:req.body.from+"@lettersafe.in",
+				from:req.session.username+"@lettersafe.in",
 				text:req.body.text,
 				subject:"Hello world"
 			})
